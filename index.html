@@ -1,0 +1,1329 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#111b35">
+<title>Você é o meu pequeno planeta ✦</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --night: #101a32;
+  --night2: #1c2945;
+  --ink: #f9eddb;
+  --muted: #bfc2d0;
+  --gold: #e9be7b;
+  --rose: #e6a6a9;
+  --line: #ffffff22;
+  --paper: #f6ead5;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  background: #101a32;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+button, input { font: inherit; }
+button { cursor: pointer; }
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #f2c988;
+  outline-offset: 4px;
+}
+
+::selection {
+  background: #dca2a8;
+  color: #101a32;
+}
+
+/* CÉU ESTRELADO */
+
+.stars {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% -20%, #354466 0%, transparent 48%),
+    linear-gradient(180deg, #101a32, #192440 73%, #121c33);
+}
+
+.stars:before,
+.stars:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(2px 2px at 12% 16%, #fff 98%, transparent),
+    radial-gradient(2px 2px at 64% 22%, #ffefc7 98%, transparent),
+    radial-gradient(1px 1px at 84% 75%, #fff 98%, transparent),
+    radial-gradient(2px 2px at 32% 77%, #fff 98%, transparent),
+    radial-gradient(1px 1px at 88% 9%, #fff 98%, transparent),
+    radial-gradient(1px 1px at 20% 47%, #fff 98%, transparent),
+    radial-gradient(2px 2px at 72% 54%, #fff 98%, transparent);
+  background-size: 360px 290px;
+  opacity: .65;
+  animation: twinkle 7s ease-in-out infinite alternate;
+}
+
+.stars:after {
+  background-size: 520px 420px;
+  transform: rotate(9deg);
+  opacity: .28;
+  animation-delay: -3s;
+}
+
+@keyframes twinkle {
+  to { opacity: .22; }
+}
+
+/* CABEÇALHO */
+
+header {
+  position: relative;
+  z-index: 10;
+  max-width: 1280px;
+  padding: 25px 6vw;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  letter-spacing: .02em;
+}
+
+.brand span { color: var(--gold); }
+
+.header-right {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  color: #d9cfbf;
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.sound {
+  border: 1px solid #ffffff3c;
+  background: #ffffff0a;
+  border-radius: 999px;
+  color: #fff0dc;
+  padding: 9px 13px;
+}
+
+.sound:hover { background: #ffffff1e; }
+
+.chapter-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chapter-nav i {
+  display: block;
+  width: 23px;
+  height: 3px;
+  border-radius: 9px;
+  background: #ffffff3e;
+  transition: .3s;
+}
+
+.chapter-nav i.on { background: var(--gold); }
+
+/* CAPÍTULOS */
+
+main {
+  max-width: 1260px;
+  margin: 0 auto;
+  min-height: calc(100vh - 95px);
+  display: flex;
+  flex-direction: column;
+}
+
+.scene {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(410px,1.1fr);
+  align-items: center;
+  gap: 4vw;
+  padding: 42px 6vw 35px;
+  animation: entrance .65s ease both;
+}
+
+@keyframes entrance {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.eyebrow {
+  color: var(--gold);
+  letter-spacing: .27em;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.scene h1,
+.scene h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  letter-spacing: -.035em;
+  line-height: 1.11;
+  margin: 0 0 22px;
+}
+
+.scene h1 { font-size: clamp(54px,6.5vw,93px); }
+.scene h2 { font-size: clamp(42px,5vw,69px); }
+
+h1 em, h2 em {
+  font-weight: 400;
+  color: var(--gold);
+}
+
+.lead {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(17px,1.8vw,22px);
+  line-height: 1.75;
+  color: #e3d8cd;
+  max-width: 470px;
+}
+
+.support {
+  font-size: 14px;
+  line-height: 1.85;
+  color: #bec3d0;
+  max-width: 440px;
+}
+
+.cta {
+  display: inline-flex;
+  gap: 17px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e9be7b;
+  background: #e9be7b;
+  color: #172039;
+  padding: 16px 25px;
+  border-radius: 3px;
+  font-weight: 700;
+  font-size: 13px;
+  margin-top: 23px;
+  transition: transform .2s, background .2s, box-shadow .2s;
+}
+
+.cta:hover {
+  transform: translateY(-3px);
+  background: #f6d19b;
+  box-shadow: 0 9px 30px #e9be7b25;
+}
+
+.cta.secondary {
+  background: transparent;
+  color: #f1d9b5;
+}
+
+.cta.secondary:hover { background: #ffffff0e; }
+
+/* ILUSTRAÇÕES */
+
+.visual {
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.planet-svg {
+  width: min(100%,590px);
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 18px 45px #0004);
+}
+
+.floating { animation: float 6s ease-in-out infinite; }
+
+@keyframes float {
+  50% { transform: translateY(-13px); }
+}
+
+.orbit {
+  animation: rotate 60s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes rotate {
+  to { transform: rotate(360deg); }
+}
+
+.spark {
+  animation: blink 2.9s ease-in-out infinite alternate;
+}
+
+@keyframes blink {
+  to { opacity: .22; }
+}
+
+/* RODAPÉ */
+
+.footer {
+  color: #abb4c5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 6vw 30px;
+  font-size: 11px;
+  letter-spacing: .08em;
+}
+
+.footer span:last-child { color: var(--gold); }
+
+/* PAINÉIS E ENIGMAS */
+
+.panel {
+  max-width: 470px;
+  background: #ffffff0a;
+  border: 1px solid #ffffff23;
+  border-radius: 9px;
+  padding: 23px 25px;
+  margin-top: 25px;
+  box-shadow: 0 14px 45px #0001;
+}
+
+.panel-title {
+  color: #f4d29e;
+  font-family: 'Playfair Display', serif;
+  font-size: 21px;
+  margin: 0 0 10px;
+}
+
+.panel p {
+  font-size: 13px;
+  color: #d0d1da;
+  line-height: 1.75;
+  margin: 6px 0 15px;
+}
+
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.choice {
+  border: 1px solid #ffffff45;
+  color: #f8eada;
+  background: #ffffff09;
+  padding: 11px 15px;
+  border-radius: 4px;
+  font-size: 13px;
+  transition: .2s;
+}
+
+.choice:hover, .choice.selected {
+  background: #e9be7b;
+  color: #132039;
+  border-color: #e9be7b;
+}
+
+.notice {
+  min-height: 20px;
+  font-size: 12px;
+  color: #efd0aa;
+  margin-top: 10px;
+}
+
+.input {
+  width: 100%;
+  background: #ffffff0e;
+  border: 1px solid #ffffff3d;
+  color: white;
+  padding: 15px;
+  border-radius: 4px;
+  letter-spacing: .11em;
+}
+
+.input::placeholder {
+  color: #a9acbc;
+  letter-spacing: 0;
+}
+
+.mini-label {
+  display: block;
+  font-size: 11px;
+  color: #e8c999;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.interactive {
+  cursor: pointer;
+  transition: filter .25s, transform .25s;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.interactive:hover {
+  filter: drop-shadow(0 0 12px #f5d38caa);
+  transform: scale(1.12);
+}
+
+/* ESTRELAS CLICÁVEIS */
+
+.star-btn {
+  position: absolute;
+  border: 0;
+  background: transparent;
+  color: #ffe2a6;
+  font-size: 32px;
+  line-height: 1;
+  padding: 12px;
+  transition: .25s;
+  filter: drop-shadow(0 0 13px #e8b979a1);
+}
+
+.star-btn:hover { transform: scale(1.4) rotate(15deg); }
+.star-btn.found { color: #fff; }
+
+.memory {
+  position: absolute;
+  bottom: 7%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(95%,350px);
+  background: var(--paper);
+  color: #46506b;
+  padding: 17px 22px;
+  text-align: center;
+  border-radius: 4px;
+  box-shadow: 0 12px 36px #0004;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 18px;
+  animation: entrance .4s ease;
+}
+
+.memory small {
+  display: block;
+  margin-top: 6px;
+  color: #8d7780;
+  font: 11px 'DM Sans', sans-serif;
+}
+
+/* CONSTELAÇÃO */
+
+.map-card {
+  position: relative;
+  min-height: 410px;
+  width: 100%;
+  border: 1px solid #ffffff19;
+  border-radius: 12px;
+  background: radial-gradient(ellipse at 54% 45%,#34415e50,transparent 65%);
+}
+
+.map-node {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  border: 0;
+  background: none;
+  color: #f9e3b7;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+}
+
+.map-node span {
+  display: grid;
+  place-items: center;
+  border: 1px solid #ffffff55;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  font-size: 34px;
+  background: #ffffff0a;
+  box-shadow: 0 0 25px #e9be7b12;
+  transition: .25s;
+}
+
+.map-node:hover span {
+  transform: translateY(-7px);
+  background: #ffffff20;
+}
+
+.map-node:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.map-node:disabled:hover span { transform: none; }
+
+.map-node.a { top: 12%; left: 12%; }
+.map-node.b { top: 24%; right: 14%; }
+.map-node.c { bottom: 12%; left: 19%; }
+.map-node.d { bottom: 10%; right: 13%; }
+
+.map-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.map-caption {
+  text-align: center;
+  font-size: 12px;
+  color: #c3c4d2;
+  margin-top: 15px;
+}
+
+.rose-petal {
+  animation: sway 4s ease-in-out infinite alternate;
+  transform-origin: 50% 100%;
+}
+
+@keyframes sway {
+  to { transform: rotate(7deg); }
+}
+
+/* CARTA FINAL */
+
+.paper {
+  max-width: 530px;
+  background: #f4ead8;
+  color: #343d50;
+  padding: 40px 43px;
+  box-shadow: 8px 12px 0 #e0cbb044,0 25px 60px #0003;
+  transform: rotate(-1deg);
+  position: relative;
+}
+
+.paper:after {
+  content: '✳';
+  position: absolute;
+  color: #cc8e85;
+  right: 31px;
+  top: 25px;
+  font-size: 22px;
+}
+
+.paper .date {
+  font: 11px 'DM Sans', sans-serif;
+  color: #9d8f80;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+.paper h3 {
+  font: italic 30px 'Playfair Display', serif;
+  color: #6d6e70;
+  margin: 20px 0;
+}
+
+.paper p { font: 17px/1.9 'Playfair Display', serif; }
+
+.paper .signature {
+  font: italic 20px 'Playfair Display', serif;
+  text-align: right;
+  color: #a16967;
+  margin-top: 23px;
+}
+
+.tiny {
+  color: #bdc2d0;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.end-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.hidden { display: none !important; }
+
+/* CELULAR */
+
+@media (max-width: 850px) {
+  header { padding: 20px 6vw; }
+  .header-right { gap: 8px; }
+  .header-right .count { display: none; }
+
+  .scene {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 27px 7vw 25px;
+  }
+
+  .scene .copy { order: 1; }
+  .scene .visual {
+    order: 0;
+    min-height: 270px;
+    max-height: 360px;
+    margin-bottom: 10px;
+  }
+
+  .planet-svg { max-height: 350px; }
+  .scene h1 { font-size: clamp(46px,11vw,72px); }
+  .scene h2 { font-size: clamp(38px,9vw,60px); }
+  .lead { font-size: 18px; }
+  .map-card { min-height: 330px; }
+
+  .map-node span {
+    width: 56px;
+    height: 56px;
+    font-size: 28px;
+  }
+
+  .map-node { font-size: 13px; }
+  .memory { bottom: 0; }
+  .paper { padding: 25px; }
+  .paper p { font-size: 15px; }
+  .footer { margin: 20px 7vw 25px; }
+  .visual.letter-visual { max-height: none; }
+  .chapter-nav i { width: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *:before, *:after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<header>
+  <div class="brand">✦ <span>meu pequeno</span> universo</div>
+  <div class="header-right">
+    <span class="count" id="chapterCount">PRÓLOGO · 00/05</span>
+    <div class="chapter-nav" id="dots"></div>
+    <button class="sound" id="soundBtn">♫ som desligado</button>
+  </div>
+</header>
+
+<main id="app" aria-live="polite"></main>
+
+<div class="footer">
+  <span>UM LIVRO INTERATIVO SOBRE NÓS DOIS</span>
+  <span>feito com amor ✳</span>
+</div>
+
+<script>
+
+/* =====================================================
+   PERSONALIZE AQUI
+   Nome, data, lembranças e carta de aniversário
+   ===================================================== */
+
+const CONFIG = {
+  nome: 'meu amor',
+  assinatura: 'com todo o meu amor',
+  dataEspecial: '0709',
+
+  memorias: [
+    'Tem dias que eu queria guardar para sempre. Muitos deles são com você.',
+    'Algumas pessoas chegam e transformam o mundo sem fazer barulho.',
+    'De todas as coincidências do universo, encontrar você foi a minha favorita.'
+  ],
+
+  carta: [
+    'Feliz aniversário, meu amor.',
+    'Se eu pudesse desenhar um universo inteiro para você, ele teria a delicadeza das coisas que você ama e a luz que trouxe para a minha vida.',
+    'Antes de você, eu não sabia que uma pessoa podia se tornar um lugar tão bonito para voltar. Obrigada por cada riso, cada cuidado e cada pequeno instante que virou infinito.',
+    'Que neste novo ano você encontre motivos para florescer, e que eu possa estar por perto para ver cada um deles. Você é o meu pequeno planeta, e o meu lugar favorito em todo o céu.'
+  ]
+};
+
+/* CONFIGURAÇÕES DO JOGO */
+
+const app = document.getElementById('app');
+const dots = document.getElementById('dots');
+const count = document.getElementById('chapterCount');
+
+let stage = 0;
+let done = 0;
+let sound = false;
+let audioCtx = null;
+let found = new Set();
+let sequence = [];
+
+/* EFEITOS SONOROS */
+
+function ping(freq = 570) {
+  if (!sound) return;
+
+  try {
+    audioCtx = audioCtx || new (
+      window.AudioContext || window.webkitAudioContext
+    )();
+
+    let o = audioCtx.createOscillator();
+    let g = audioCtx.createGain();
+
+    o.type = 'sine';
+    o.frequency.value = freq;
+
+    g.gain.setValueAtTime(.06, audioCtx.currentTime);
+    g.gain.exponentialRampToValueAtTime(
+      .001,
+      audioCtx.currentTime + .18
+    );
+
+    o.connect(g);
+    g.connect(audioCtx.destination);
+    o.start();
+    o.stop(audioCtx.currentTime + .19);
+  } catch (e) {}
+}
+
+document.getElementById('soundBtn').onclick = () => {
+  sound = !sound;
+  document.getElementById('soundBtn').textContent =
+    sound ? '♫ som ligado' : '♫ som desligado';
+  ping();
+};
+
+/* ILUSTRAÇÕES EM SVG */
+
+function star(x, y, r = 4) {
+  return `
+    <path d="
+      M${x} ${y-r*2}
+      L${x+r*.45} ${y-r*.45}
+      L${x+r*2} ${y}
+      L${x+r*.45} ${y+r*.45}
+      L${x} ${y+r*2}
+      L${x-r*.45} ${y+r*.45}
+      L${x-r*2} ${y}
+      L${x-r*.45} ${y-r*.45}Z
+    " fill="#f9dc9c" opacity=".85"/>`;
+}
+
+function illustration(type = 'home') {
+  const sprinkle = [
+    [78,65,3], [484,88,4], [150,428,3],
+    [460,400,3], [295,42,2], [44,280,2], [550,270,3]
+  ].map(p => star(...p)).join('');
+
+  let planet = `
+    <g class="floating">
+      <circle cx="296" cy="303" r="148" fill="#b1b8b0"/>
+      <circle cx="296" cy="303" r="137" fill="#d4c4a7"/>
+      <path d="M179 223 Q270 130 389 236 Q420 284 432 301 Q378 277 346 304 Q280 355 173 305Z" fill="#efe0c2" opacity=".72"/>
+      <path d="M171 340 Q270 295 320 354 T416 334 Q376 429 279 440 Q201 432 171 340Z" fill="#a4ada7" opacity=".85"/>
+      <path d="M216 216 Q260 253 315 233" stroke="#f8eed9" stroke-width="4" fill="none" opacity=".65"/>
+      <ellipse cx="260" cy="275" rx="33" ry="12" fill="#8e9f96" opacity=".45"/>
+      <ellipse cx="358" cy="366" rx="21" ry="7" fill="#8e9f96" opacity=".45"/>`;
+
+  const rose = `
+    <g transform="translate(288 161)">
+      <path d="M2 92 Q-7 41 4 -17" fill="none" stroke="#527d66" stroke-width="5"/>
+      <path d="M2 64 Q-28 35 -43 52 Q-25 76 2 70" fill="#648c70"/>
+      <path d="M2 45 Q32 20 43 32 Q27 56 2 51" fill="#719b7c"/>
+      <g class="rose-petal">
+        <path d="M-26 -11 Q-46 -39 -20 -55 Q3 -65 12 -51 Q35 -63 39 -36 Q42 -15 10 -2 Q-12 7 -26 -11Z" fill="#c97881"/>
+        <path d="M-11 -27 Q-33 -45 -4 -51 Q19 -52 21 -33 Q18 -11 -2 -17Z" fill="#f3b3ae"/>
+        <path d="M-4 -26 Q2 -40 13 -34 Q18 -25 5 -21" fill="none" stroke="#a85f69" stroke-width="3"/>
+      </g>
+    </g>`;
+
+  const foxSvg = `
+    <g transform="translate(300 190)">
+      <path d="M-69 104 Q-190 70 -176 26 Q-158 -7 -111 29 L-55 68" fill="#bc7557" stroke="#de9b71" stroke-width="4"/>
+      <path d="M-160 19 Q-142 -7 -122 15 L-144 34Z" fill="#ead4b3"/>
+      <path d="M-83 -19 L-61 -91 L-14 -51 L18 -92 L42 -12 Q55 50 25 99 L-53 99 Q-95 54 -83 -19Z" fill="#d49368"/>
+      <path d="M-59 -61 L-44 -25 L-22 -38Z M13 -39 L23 -65 L30 -20Z" fill="#efc6a0"/>
+      <path d="M-69 17 Q-43 55 -16 37 Q11 57 35 18 Q28 95 -15 96 Q-62 93 -69 17Z" fill="#f6e8d3"/>
+      <path d="M-45 6 Q-38 1 -31 7 M8 7 Q16 1 23 6" stroke="#3b4051" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M-17 27 L-4 27 L-11 35Z" fill="#505263"/>
+      <path d="M-15 41 Q-12 47 -8 41" fill="none" stroke="#74605b" stroke-width="2"/>
+      <path d="M-45 102 L-42 141 M21 101 L20 141" stroke="#d49368" stroke-width="18" stroke-linecap="round"/>
+    </g>`;
+
+  if (type === 'fox') {
+    return `
+      <svg class="planet-svg" viewBox="0 0 600 500" role="img" aria-label="Uma raposa ilustrada">
+        ${sprinkle}
+        <ellipse cx="300" cy="425" rx="190" ry="30" fill="#efd6b1" opacity=".09"/>
+        ${planet}
+        ${foxSvg}
+        </g>
+      </svg>`;
+  }
+
+  if (type === 'rose') {
+    return `
+      <svg class="planet-svg" viewBox="0 0 600 500" role="img" aria-label="Uma rosa crescendo sobre um planeta">
+        ${sprinkle}
+        ${planet}
+        ${rose}
+        </g>
+      </svg>`;
+  }
+
+  if (type === 'moon') {
+    return `
+      <svg class="planet-svg" viewBox="0 0 600 500" role="img" aria-label="Planeta sob um céu de estrelas">
+        ${sprinkle}
+        ${planet}
+        <path d="M234 185 Q302 166 359 192" stroke="#e7cfab" fill="none" stroke-width="3"/>
+        ${rose}
+        </g>
+      </svg>`;
+  }
+
+  return `
+    <svg class="planet-svg" viewBox="0 0 600 500" role="img" aria-label="Um pequeno planeta com uma rosa">
+      ${sprinkle}
+      <ellipse cx="295" cy="300" rx="245" ry="100" fill="none" stroke="#ecd7af" stroke-opacity=".20" stroke-width="1.3" transform="rotate(-24 295 300)"/>
+      ${planet}
+      ${rose}
+      </g>
+      <path d="M448 124 Q462 107 477 122 Q484 142 465 151 Q444 137 448 124Z" fill="#e7ad9b" opacity=".9"/>
+    </svg>`;
+}
+
+/* NAVEGAÇÃO */
+
+function shell(k, title, lead, extra, visual) {
+  return `
+    <section class="scene">
+      <div class="copy">
+        <div class="eyebrow">${k}</div>
+        <h2>${title}</h2>
+        <div class="lead">${lead}</div>
+        ${extra}
+      </div>
+      <div class="visual">${visual}</div>
+    </section>`;
+}
+
+function next() {
+  done = Math.max(done, stage + 1);
+  stage++;
+  render();
+  ping(720);
+}
+
+function setStage(n) {
+  stage = n;
+  render();
+  ping();
+}
+
+function escapeHTML(t) {
+  return String(t).replace(/[&<>"']/g, c => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  }[c]));
+}
+
+/* =====================================================
+   CAPÍTULOS DO SITE
+   ===================================================== */
+
+function render() {
+  window.scrollTo({ top: 0, behavior: 'instant' });
+
+  count.textContent =
+    stage === 0 ? 'PRÓLOGO · 00/05' :
+    stage === 6 ? 'EPÍLOGO · 05/05' :
+    `CAPÍTULO ${String(stage).padStart(2,'0')} / 05`;
+
+  dots.innerHTML = Array.from({length: 5}, (_, i) =>
+    `<i class="${i < Math.max(stage,done) ? 'on' : ''}"></i>`
+  ).join('');
+
+  /* PRÓLOGO */
+
+  if (stage === 0) {
+    app.innerHTML = `
+      <section class="scene">
+        <div class="copy">
+          <div class="eyebrow">UM PRESENTE EM FORMA DE UNIVERSO</div>
+
+          <h1>Você é o meu <em>pequeno planeta.</em></h1>
+
+          <p class="lead">
+            Existem milhares de estrelas no céu.
+            Mas, entre todas elas, foi em você que meu coração encontrou casa.
+          </p>
+
+          <p class="support">
+            Preparei uma viagem por cinco pequenos capítulos.
+            Siga as estrelas, descubra segredos e encontre
+            o presente que escondi no fim do universo.
+          </p>
+
+          <button class="cta" onclick="setStage(1)">
+            Começar nossa viagem <span>↗</span>
+          </button>
+
+          <p class="tiny">
+            ✧ Uma aventura feita só para você, ${escapeHTML(CONFIG.nome)}.
+          </p>
+        </div>
+
+        <div class="visual">${illustration('home')}</div>
+      </section>`;
+    return;
+  }
+
+  /* CAPÍTULO 1 - ESTRELAS */
+
+  if (stage === 1) {
+    app.innerHTML = shell(
+      'CAPÍTULO I · O CÉU DAS MEMÓRIAS',
+      'Algumas estrelas <em>têm nome.</em>',
+      'Cada estrelinha guarda um instante nosso. Toque nas três estrelas para acender as lembranças.',
+      `
+      <p class="support">
+        Algumas coisas são pequenas demais para caber num calendário
+        e grandes demais para esquecer.
+      </p>
+      <div class="panel">
+        <div class="panel-title">✦ Coleção de lembranças</div>
+        <p id="memoCount">0 de 3 estrelas encontradas</p>
+        <button id="memoNext" class="cta hidden" onclick="next()">
+          Seguir para o próximo planeta ↗
+        </button>
+      </div>`,
+      `
+      <div style="position:relative;width:100%;max-width:580px">
+        ${illustration('moon')}
+
+        <button class="star-btn" style="left:10%;top:8%"
+          onclick="findStar(0,this)" aria-label="Primeira lembrança">✦</button>
+
+        <button class="star-btn" style="right:10%;top:14%"
+          onclick="findStar(1,this)" aria-label="Segunda lembrança">✧</button>
+
+        <button class="star-btn" style="left:25%;bottom:8%"
+          onclick="findStar(2,this)" aria-label="Terceira lembrança">✦</button>
+
+        <div id="memoryPopup"></div>
+      </div>`
+    );
+
+    document.querySelectorAll('.star-btn').forEach((b,i) => {
+      if (found.has(i)) b.classList.add('found');
+    });
+
+    checkStars();
+    return;
+  }
+
+  /* CAPÍTULO 2 - A ROSA */
+
+  if (stage === 2) {
+    app.innerHTML = shell(
+      'CAPÍTULO II · A ROSA',
+      'Tudo floresce <em>com cuidado.</em>',
+      'Uma rosa nunca é só uma rosa quando alguém escolhe cuidar dela.',
+      `
+      <div class="panel">
+        <div class="panel-title">A pergunta da rosa</div>
+        <p>O que torna uma flor especial entre tantas outras?</p>
+
+        <div class="choices">
+          <button class="choice" onclick="answerRose(false,this)">
+            Ser a mais bonita
+          </button>
+          <button class="choice" onclick="answerRose(true,this)">
+            O tempo e o carinho dedicados a ela
+          </button>
+          <button class="choice" onclick="answerRose(false,this)">
+            Nunca perder uma pétala
+          </button>
+        </div>
+
+        <div class="notice" id="roseNotice" role="status"></div>
+        <button id="roseNext" class="cta hidden" onclick="next()">
+          Seguir a trilha de pétalas ↗
+        </button>
+      </div>`,
+      illustration('rose')
+    );
+    return;
+  }
+
+  /* CAPÍTULO 3 - A RAPOSA */
+
+  if (stage === 3) {
+    app.innerHTML = shell(
+      'CAPÍTULO III · A RAPOSA',
+      'O afeto é feito de <em>presença.</em>',
+      'Uma raposa apareceu para contar que os vínculos crescem nos pequenos gestos de cada dia.',
+      `
+      <div class="panel">
+        <div class="panel-title">O segredo da raposa</div>
+        <p>Escolha o que faz o amor continuar crescendo.</p>
+
+        <div class="choices">
+          <button class="choice" onclick="answerFox(this,false)">
+            Adivinhar tudo sem conversar
+          </button>
+          <button class="choice" onclick="answerFox(this,true)">
+            Escutar, respeitar e estar presente
+          </button>
+          <button class="choice" onclick="answerFox(this,false)">
+            Ter sempre razão
+          </button>
+        </div>
+
+        <div class="notice" id="foxNotice" role="status"></div>
+        <button id="foxNext" class="cta hidden" onclick="next()">
+          Guardar esse segredo ↗
+        </button>
+      </div>`,
+      illustration('fox')
+    );
+    return;
+  }
+
+  /* CAPÍTULO 4 - CONSTELAÇÃO */
+
+  if (stage === 4) {
+    app.innerHTML = shell(
+      'CAPÍTULO IV · A CONSTELAÇÃO',
+      'Entre tantos caminhos, <em>nós.</em>',
+      'Há quatro pequenos mundos neste mapa. Visite-os na ordem que forma a nossa história: encontro, conversa, carinho e amor.',
+      `
+      <p class="support">
+        Toque nos planetinhas na ordem certa para criar sua constelação.
+      </p>
+
+      <div class="panel">
+        <div class="panel-title">Sua constelação</div>
+        <p id="seqText">✧ ✧ ✧ ✧</p>
+        <div class="notice" id="seqNotice" role="status"></div>
+
+        <button class="choice" onclick="resetSeq()">
+          ↻ Recomeçar sequência
+        </button>
+
+        <button id="seqNext" class="cta hidden" onclick="next()">
+          Ir para o último segredo ↗
+        </button>
+      </div>`,
+      `
+      <div class="map-card">
+        <svg class="map-lines" viewBox="0 0 500 400" preserveAspectRatio="none">
+          <path d="M95 100 L390 135 L130 305 L389 317"
+            fill="none" stroke="#ecd4a2"
+            stroke-width="2" stroke-dasharray="5 10" opacity=".5"/>
+        </svg>
+
+        <button class="map-node a" onclick="mapTap('encontro',this)">
+          <span>☄</span>encontro
+        </button>
+        <button class="map-node b" onclick="mapTap('conversa',this)">
+          <span>☾</span>conversa
+        </button>
+        <button class="map-node c" onclick="mapTap('carinho',this)">
+          <span>✿</span>carinho
+        </button>
+        <button class="map-node d" onclick="mapTap('amor',this)">
+          <span>♡</span>amor
+        </button>
+      </div>`
+    );
+    return;
+  }
+
+  /* CAPÍTULO 5 - SENHA FINAL */
+
+  if (stage === 5) {
+    app.innerHTML = shell(
+      'CAPÍTULO V · O ÚLTIMO SEGREDO',
+      'Toda história tem <em>uma data.</em>',
+      'Antes de abrir o meu último presente, preciso saber: você lembra quando começou a nossa história?',
+      `
+      <div class="panel">
+        <div class="panel-title">O cadeado das estrelas</div>
+
+        <label class="mini-label" for="pass">
+          Nossa data especial · dia e mês
+        </label>
+
+        <input class="input" id="pass" maxlength="5"
+          inputmode="numeric" placeholder="Ex.: 0709" autocomplete="off">
+
+        <div class="notice" id="passNotice" role="status"></div>
+
+        <button class="cta" onclick="checkPass()">
+          Abrir o último presente ♡
+        </button>
+      </div>
+
+      <p class="tiny">
+        Dica: quatro números, sem precisar colocar o ano.
+      </p>`,
+      `
+      <svg class="planet-svg" viewBox="0 0 600 500"
+        aria-label="Um envelope de papel guardando um coração">
+
+        ${star(110,70,5)}
+        ${star(481,102,4)}
+        ${star(415,385,3)}
+
+        <circle cx="310" cy="257" r="179" fill="#d7c4a3" opacity=".09"/>
+
+        <g class="floating">
+          <rect x="135" y="172" width="330" height="238"
+            rx="5" fill="#e6d6bb"/>
+          <path d="M135 172 L300 301 L465 172"
+            fill="none" stroke="#c1a889" stroke-width="5"/>
+          <path d="M135 408 L270 285 M465 408 L330 285"
+            fill="none" stroke="#bca98d" stroke-width="4"/>
+          <path d="M284 258 C245 215 219 274 300 337 C381 274 355 215 316 258 L300 272Z"
+            fill="#ba7778"/>
+        </g>
+      </svg>`
+    );
+    return;
+  }
+
+  /* EPÍLOGO - CARTA FINAL */
+
+  if (stage === 6) {
+    app.innerHTML = `
+      <section class="scene">
+        <div class="copy">
+          <div class="eyebrow">EPÍLOGO · SEU PRESENTE ENCONTRADO</div>
+
+          <h2>O universo inteiro <em>cabe em você.</em></h2>
+
+          <p class="lead">
+            Você chegou ao fim do mapa.
+            Mas algumas histórias foram feitas para continuar.
+          </p>
+
+          <p class="support">
+            O verdadeiro tesouro nunca esteve escondido
+            entre as estrelas. Ele sempre esteve bem aqui.
+          </p>
+
+          <div class="end-actions">
+            <button class="cta" onclick="setStage(0)">
+              ↻ Viver essa aventura outra vez
+            </button>
+
+            <button class="cta secondary" onclick="copyLetter()">
+              ♡ Copiar a carta
+            </button>
+          </div>
+
+          <div class="notice" id="copyNotice" role="status"></div>
+        </div>
+
+        <div class="visual letter-visual">
+          <article class="paper">
+            <span class="date">Uma carta do meu planeta para o seu</span>
+
+            <h3>Para ${escapeHTML(CONFIG.nome)},</h3>
+
+            ${CONFIG.carta.map(t => `<p>${escapeHTML(t)}</p>`).join('')}
+
+            <div class="signature">
+              ${escapeHTML(CONFIG.assinatura)} ♡
+            </div>
+          </article>
+        </div>
+      </section>`;
+    return;
+  }
+}
+
+/* =====================================================
+   MECÂNICAS DOS MINIGAMES
+   ===================================================== */
+
+/* ENCONTRAR ESTRELAS */
+
+function findStar(i, b) {
+  found.add(i);
+  b.classList.add('found');
+
+  document.getElementById('memoryPopup').innerHTML = `
+    <div class="memory">
+      “${escapeHTML(CONFIG.memorias[i])}”
+      <small>✦ lembrança ${i+1} de 3</small>
+    </div>`;
+
+  checkStars();
+  ping(510 + i * 80);
+}
+
+function checkStars() {
+  if (stage !== 1) return;
+
+  document.getElementById('memoCount').textContent =
+    `${found.size} de 3 estrelas encontradas`;
+
+  document.getElementById('memoNext').classList.toggle(
+    'hidden', found.size !== 3
+  );
+}
+
+/* ENIGMA DA ROSA */
+
+function answerRose(ok, b) {
+  document.querySelectorAll('.choice').forEach(x =>
+    x.classList.remove('selected')
+  );
+
+  b.classList.add('selected');
+
+  document.getElementById('roseNotice').textContent = ok
+    ? 'Exatamente. O amor está no tempo e no cuidado que escolhemos oferecer. ♡'
+    : 'Tente outra vez. Não é a perfeição que faz uma flor ser única.';
+
+  document.getElementById('roseNext').classList.toggle('hidden', !ok);
+  ping(ok ? 740 : 310);
+}
+
+/* ENIGMA DA RAPOSA */
+
+function answerFox(b, ok) {
+  document.querySelectorAll('.choice').forEach(x =>
+    x.classList.remove('selected')
+  );
+
+  b.classList.add('selected');
+
+  document.getElementById('foxNotice').textContent = ok
+    ? 'A raposa sorriu: esse é o tipo de laço que vale a pena cultivar. ♡'
+    : 'A raposa inclina a cabeça. Amor também precisa de escuta e delicadeza.';
+
+  document.getElementById('foxNext').classList.toggle('hidden', !ok);
+  ping(ok ? 760 : 310);
+}
+
+/* JOGO DA CONSTELAÇÃO */
+
+function mapTap(name, b) {
+  const order = ['encontro','conversa','carinho','amor'];
+
+  if (name !== order[sequence.length]) {
+    document.getElementById('seqNotice').textContent =
+      'As estrelas se embaralharam... tente seguir a ordem indicada.';
+    ping(290);
+    return;
+  }
+
+  sequence.push(name);
+  b.disabled = true;
+  b.querySelector('span').style.background = '#e9be7b';
+  b.querySelector('span').style.color = '#192440';
+
+  document.getElementById('seqText').textContent =
+    sequence.map((_,i) => ['☄','☾','✿','♡'][i]).join('   ') +
+    '   ' +
+    Array(4-sequence.length).fill('✧').join('   ');
+
+  document.getElementById('seqNotice').textContent =
+    sequence.length === 4
+      ? 'Você desenhou a nossa constelação! ✨'
+      : 'Uma estrela acesa. Continue...';
+
+  document.getElementById('seqNext').classList.toggle(
+    'hidden', sequence.length !== 4
+  );
+
+  ping(500 + sequence.length * 90);
+}
+
+function resetSeq() {
+  sequence = [];
+  render();
+}
+
+/* CADEADO COM A DATA ESPECIAL */
+
+function checkPass() {
+  const v = document.getElementById('pass').value.replace(/\D/g,'');
+
+  if (v === CONFIG.dataEspecial) {
+    done = 5;
+    stage = 6;
+    render();
+    ping(880);
+  } else {
+    document.getElementById('passNotice').textContent =
+      'Ainda não... pense no dia e mês que guardamos com carinho. ♡';
+    ping(290);
+  }
+}
+
+/* COPIAR A CARTA */
+
+function copyLetter() {
+  const content = `Para ${CONFIG.nome}\n\n${CONFIG.carta.join('\n\n')}\n\n${CONFIG.assinatura} ♡`;
+
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(content).then(() => {
+      document.getElementById('copyNotice').textContent =
+        'Carta copiada com carinho ♡';
+    }).catch(() => {
+      document.getElementById('copyNotice').textContent =
+        'Selecione e copie o texto da carta.';
+    });
+  } else {
+    const t = document.createElement('textarea');
+    t.value = content;
+    document.body.appendChild(t);
+    t.select();
+
+    try {
+      document.execCommand('copy');
+      document.getElementById('copyNotice').textContent =
+        'Carta copiada com carinho ♡';
+    } catch (e) {
+      document.getElementById('copyNotice').textContent =
+        'Selecione e copie o texto da carta.';
+    }
+
+    t.remove();
+  }
+}
+
+/* INICIAR O SITE */
+
+render();
+
+</script>
+</body>
+</html>
